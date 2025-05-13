@@ -28,12 +28,12 @@ jobs:
       - name: Build and push uv feature
         run: |
           cd uv
-          docker build -t ghcr.io/${{ github.repository_owner }}/devcontainer-features/uv:1.0.0 .
-          docker push ghcr.io/${{ github.repository_owner }}/devcontainer-features/uv:1.0.0
+          docker build -t ghcr.io/${{ github.repository_owner }}/devcon-features/uv:1.0.0 .
+          docker push ghcr.io/${{ github.repository_owner }}/devcon-features/uv:1.0.0
       
       # Build and push the just feature
       - name: Build and push just feature
         run: |
           cd just
-          docker build -t ghcr.io/${{ github.repository_owner }}/devcontainer-features/just:1.0.0 .
-          docker push ghcr.io/${{ github.repository_owner }}/devcontainer-features/just:1.0.0
+          docker build -t ghcr.io/${{ github.repository_owner }}/devcon-features/just:1.0.0 .
+          docker push ghcr.io/${{ github.repository_owner }}/devcon-features/just:1.0.0
