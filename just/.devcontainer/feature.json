@@ -1,0 +1,7 @@
+{
+  "name": "just",
+  "version": "1.0.0",
+  "description": "A DevContainer feature for setting up Just (command runner)",
+  "installsAfter": ["curl"],
+  "dependencies": []
+}

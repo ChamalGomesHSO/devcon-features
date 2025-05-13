@@ -1,0 +1,39 @@
+name: Publish DevContainer Features to GHCR
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      # Set up Docker Buildx for multi-platform builds (optional, but good practice)
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      # Log in to GitHub Container Registry (GHCR)
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Build and push the uv feature
+      - name: Build and push uv feature
+        run: |
+          cd devcontainer-features/uv
+          docker build -t ghcr.io/${{ github.repository_owner }}/devcontainer-features/uv:1.0.0 .
+          docker push ghcr.io/${{ github.repository_owner }}/devcontainer-features/uv:1.0.0
+      
+      # Build and push the just feature
+      - name: Build and push just feature
+        run: |
+          cd devcontainer-features/just
+          docker build -t ghcr.io/${{ github.repository_owner }}/devcontainer-features/just:1.0.0 .
+          docker push ghcr.io/${{ github.repository_owner }}/devcontainer-features/just:1.0.0
