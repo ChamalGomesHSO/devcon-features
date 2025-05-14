@@ -2,6 +2,6 @@
   "name": "uv",
   "version": "1.0.0",
   "description": "A DevContainer feature for setting up uv",
-  "installsAfter": ["curl"],
+  "installsAfter": [],
   "dependencies": []
 }
